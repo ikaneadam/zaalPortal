@@ -11,11 +11,14 @@ import { WedstrijdOpnameComponent } from './modules/components/wedstrijd-opname/
 import { ZaalSessieComponent } from './modules/components/zaal-sessie/zaal-sessie.component';
 import { SpelerComponent } from './modules/components/speler/speler.component';
 import {HeaderComponent} from "./shared/components/header/header.component";
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTabsModule} from "@angular/material/tabs";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {NgApexchartsModule} from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -31,12 +34,17 @@ import {MatTabsModule} from "@angular/material/tabs";
   ],
   imports: [
     AppRoutingModule,
+    FontAwesomeModule,
     BrowserModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     NoopAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgApexchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

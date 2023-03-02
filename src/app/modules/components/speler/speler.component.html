@@ -1,1 +1,17 @@
-<p>speler works!</p>
+<section *ngIf="chartOptions !== undefined; else loading">
+  <div id="chart">
+    <apx-chart
+      [series]="chartOptions.series"
+      [fill]="chartOptions.fill"
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [responsive]="chartOptions.responsive"
+      [colors]="chartOptions.colors"
+    ></apx-chart>
+  </div>
+</section>
+
+
+<ng-template #loading>
+  <fa-icon class="spinner" [icon]="faSpinner"></fa-icon>
+</ng-template>
