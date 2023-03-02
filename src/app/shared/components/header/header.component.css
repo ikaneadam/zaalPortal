@@ -1,0 +1,10 @@
+header {
+  background-color: #0739a9;
+  clip-path: polygon(100% 0, 100% 50%, 50% 90%, 0 50%, 0 0);
+  height: 100px;
+}
+
+.headerText {
+  color: white;
+  text-align: center;
+}

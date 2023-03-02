@@ -1,0 +1,8 @@
+<main>
+  <nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
+    <a mat-tab-link *ngFor="let link of links"
+       [active]="activeLink == link"
+       routerLink="{{link.routerLink}}"> <img class="iconPic" src="{{link.imageUrl}}"> </a>
+  </nav>
+  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+</main>
