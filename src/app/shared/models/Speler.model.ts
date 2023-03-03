@@ -8,5 +8,8 @@ export type Speler = {
   //typeorm getrawquery limitaions
   imageurl?: string;
   teams: Team[]
-  goals: Goal;
+  goals: string | Goal;
+  wins: string
+  loses: string
+  draws: string
 }

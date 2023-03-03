@@ -1,4 +1,4 @@
-<section *ngIf="chartOptions !== undefined; else loading">
+<section *ngIf="chartOptions !== undefined || speler !== undefined; else loading">
   <div id="chart">
     <apx-chart
       [series]="chartOptions.series"
@@ -13,5 +13,7 @@
 
 
 <ng-template #loading>
+
   <fa-icon class="spinner" [icon]="faSpinner"></fa-icon>
 </ng-template>
+

@@ -4,8 +4,8 @@ import {Team} from "./Team.model";
 export type Zaalsessie = {
   UUID: string;
   isKlaar: boolean;
-  Naam: string;
+  name: string;
   created_at: Date;
-  Wedstrijden: Wedstrijd[];
-  Teams: Team[];
+  wedstrijden: Wedstrijd[];
+  teams: Team[];
 }

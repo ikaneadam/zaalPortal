@@ -19,6 +19,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {NgApexchartsModule} from "ng-apexcharts";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -32,20 +33,21 @@ import {NgApexchartsModule} from "ng-apexcharts";
     HeaderComponent,
     FooterComponent
   ],
-  imports: [
-    AppRoutingModule,
-    FontAwesomeModule,
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NoopAnimationsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatTabsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgApexchartsModule,
-  ],
+    imports: [
+        AppRoutingModule,
+        FontAwesomeModule,
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatTabsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgApexchartsModule,
+        MatTableModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

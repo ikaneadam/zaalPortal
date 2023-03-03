@@ -8,6 +8,10 @@ import {
   ApexResponsive,
   ApexChart
 } from "ng-apexcharts";
+import {HeaderService} from "../../../shared/services/header.service";
+import {SpelerService} from "../../../shared/services/speler.service";
+import {Speler} from "../../../shared/models/Speler.model";
+import {ActivatedRoute} from "@angular/router";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -29,8 +33,31 @@ export class SpelerComponent implements OnInit {
   @ViewChild("chart", { static: true }) chart: ChartComponent | any;
   public chartOptions: Partial<ChartOptions> | any;
   public faSpinner = faSpinner
+  public speler: Speler | undefined;
 
-  constructor() {
+  constructor(private headerService: HeaderService, private spelerService: SpelerService,private route: ActivatedRoute) {
+    headerService.setHeaderText("spelers")
+  }
+
+  ngOnInit(){
+    this.createEmptyDougnutChart()
+    // this.createDougnutChart()
+    this.route.params.subscribe((params: any)=>{
+      const spelerUUID = params['id'];
+      console.log(spelerUUID)
+      this.getPlayer(spelerUUID)
+
+    });
+
+  }
+
+  getPlayer(spelerUUID: string){
+    this.spelerService.getSpeler(spelerUUID).subscribe((speler: Speler)=>{
+      console.log(speler)
+      this.speler = speler
+      this.headerService.setHeaderText(speler.name)
+      this.createDougnutChart(Number(speler.wins), Number(speler.draws), Number(speler.loses))
+    })
   }
 
   createEmptyDougnutChart(){
@@ -58,9 +85,9 @@ export class SpelerComponent implements OnInit {
     };
   }
 
-  createDougnutChart(){
+  createDougnutChart(wins: number, draws: number, loses: number){
     this.chartOptions = {
-      series: [4,2,3],
+      series: [wins,draws,loses],
       chart: {
         type: "donut"
       },
@@ -92,10 +119,4 @@ export class SpelerComponent implements OnInit {
       ]
     };
   }
-
-  ngOnInit(){
-    this.createEmptyDougnutChart()
-    this.createDougnutChart()
-  }
-
 }

@@ -1,1 +1,35 @@
-<p>spelers works!</p>
+<div class="component">
+  <section *ngIf="spelers !== undefined; else loading">
+    <table mat-table [dataSource]="spelers" class="mat-elevation-z0">
+      <ng-container matColumnDef="pf">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> <img class="profilePicture" src="{{getImage(element.imageurl)}}"> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="goals">
+        <th mat-header-cell *matHeaderCellDef> goals </th>
+        <td mat-cell *matCellDef="let element"> {{element.goals}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row class="test"
+          (click)="redirectToPlayer(row)"
+          *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>
+
+
+  </section>
+
+
+</div>
+
+<ng-template #loading>
+  <div class="loaderBox">
+    <span class="loader"></span>
+  </div>
+</ng-template>
