@@ -32,10 +32,35 @@ export class SpelerComponent implements OnInit {
 
   constructor() {
   }
-//['#12ff41', '#d4d9d5', '#ff5736']
-  ngOnInit(){
+
+  createEmptyDougnutChart(){
     this.chartOptions = {
-      series: [23,3,53],
+      chart: {
+        type: "donut"
+      },
+      series: [1],
+      labels: ['ga spelen man'],
+      colors: ['#f0f0f0'],
+
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  createDougnutChart(){
+    this.chartOptions = {
+      series: [4,2,3],
       chart: {
         type: "donut"
       },
@@ -66,6 +91,11 @@ export class SpelerComponent implements OnInit {
         }
       ]
     };
+  }
+
+  ngOnInit(){
+    this.createEmptyDougnutChart()
+    this.createDougnutChart()
   }
 
 }
