@@ -63,11 +63,15 @@ export class ZaalSessieComponent {
     return winsPunten + drawsPunten
   }
 
+  private comparePunten(a: any, b: any) {
+    return a.punten - b.punten;
+  }
+
   public setTeams() {
     let teams = this.zaalsessie.teams
 
     teams = teams.map((team: any) => Object.assign(team, {punten: this.calculatePunten(team)}));
-    teams =teams.sort()
+    teams = teams.sort(this.comparePunten)
     this.teams = teams
   }
 }
