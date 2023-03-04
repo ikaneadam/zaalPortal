@@ -22,7 +22,7 @@ export class TeamService extends HttpService {
     return this.http.get<Team>(`${this.host}/api/zaalsessies/${zaalSessieUUID}/teams/${teamdUUID}`)
   }
 
-  public createTeam(zaalSessieUUID: string, teamPayload: {name: string, spelers: Speler[]}): Observable<Team>{
+  public createTeam(zaalSessieUUID: string, teamPayload: any): Observable<Team>{
     return this.http.post<Team>(`${this.host}/api/zaalsessies/${zaalSessieUUID}/teams`, teamPayload)
   }
 }

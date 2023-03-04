@@ -1,1 +1,21 @@
-<p>zaalsessies works!</p>
+<section class="component" (swiperight)="openCreateZaalModal()" *ngIf="zaalSessies !== undefined; else loading">
+  <article routerLink="/zaalsessie/{{zaalsessie.UUID}}" class="zaalsessie" *ngFor="let zaalsessie of zaalSessies">
+    <mat-card>
+      <mat-card-content>
+        <h1>
+          {{zaalsessie?.name}}
+        </h1>
+      </mat-card-content>
+      <mat-card-content>
+        {{parseDate(zaalsessie?.created_at)}}
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>
+
+
+<ng-template #loading>
+  <div class="loaderBox">
+    <span class="loader"></span>
+  </div>
+</ng-template>

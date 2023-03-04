@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Yo man</h1>
+<div mat-dialog-content>
+  <mat-form-field >
+    <mat-label>ZaalSessie</mat-label>
+    <input type="text" matInput [formControl]="zaalSessieFormControl" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="zaalSessieFormControl.hasError('length') && !zaalSessieFormControl.hasError('required')">
+      minimaal 3 letters lan
+    </mat-error>
+    <mat-error *ngIf="zaalSessieFormControl.hasError('required')">
+      zaalsessie is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Youssef midget</button>
+  <button mat-button (click)="createZaalSessie()" cdkFocusInitial>Ok</button>
+</div>

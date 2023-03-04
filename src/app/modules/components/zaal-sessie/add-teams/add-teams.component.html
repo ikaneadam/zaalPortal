@@ -1,0 +1,32 @@
+<section class="component" *ngIf="spelers !== undefined; else loading">
+    <h1 mat-dialog-title>Maak team</h1>
+  <div mat-dialog-content>
+    <mat-form-field >
+      <mat-label>Team naam</mat-label>
+      <input type="text" matInput [formControl]="teamNameFormControl" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="teamNameFormControl.hasError('length') && !teamNameFormControl.hasError('required')">
+        minimaal 3 letters lan
+      </mat-error>
+      <mat-error *ngIf="teamNameFormControl.hasError('required')">
+        team naam <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Nah toch niet</button>
+    <button mat-button (click)="createTeam()" cdkFocusInitial>Maak team</button>
+  </div>
+
+  <mat-selection-list #spelerList [(ngModel)]="selectedSpelers">
+    <mat-list-option *ngFor="let speler of spelers" [value]="speler">
+      {{speler?.name}}
+    </mat-list-option>
+  </mat-selection-list>
+</section>
+
+
+<ng-template #loading>
+  <div class="loaderBox">
+    <span class="loader"></span>
+  </div>
+</ng-template>

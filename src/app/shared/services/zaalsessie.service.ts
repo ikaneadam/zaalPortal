@@ -19,11 +19,11 @@ export class ZaalsessieService extends HttpService {
     return this.http.get<Zaalsessie[]>(`${this.host}/api/zaalsessies`)
   }
 
-  public getZaalSessie(zaalSessieUUID: string): Observable<Team>{
-    return this.http.get<Team>(`${this.host}/api/zaalsessies/${zaalSessieUUID}`)
+  public getZaalSessie(zaalSessieUUID: string): Observable<Zaalsessie>{
+    return this.http.get<Zaalsessie>(`${this.host}/api/zaalsessies/${zaalSessieUUID}`)
   }
 
-  public createZaalSessie(zaalSessieUUID: string, zaalSessiePayload: {name: string}): Observable<Team>{
-    return this.http.post<Team>(`${this.host}/api/zaalsessies/${zaalSessieUUID}/teams`, zaalSessiePayload)
+  public createZaalSessie(zaalSessiePayload: {name: string}): Observable<Zaalsessie>{
+    return this.http.post<Zaalsessie>(`${this.host}/api/zaalsessies`, zaalSessiePayload)
   }
 }

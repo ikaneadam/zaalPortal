@@ -30,32 +30,3 @@
     transform: rotate(360deg);
   }
 }
-
-.profilePicture {
-  max-width: 50px;
-}
-
-.mat-row:hover .mat-cell{
-  background-color: #fff5a2;
-}
-
-.zaalsessie {
-  margin-bottom: 10px;
-}
-
-.wedstrijdOpname {
-  display: flex;
-  gap: 10px;
-  flex-direction: row;
-  padding: 10px;
-}
-
-.wedstrijdAanmaken {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding: 10px;
-}
-
-
-

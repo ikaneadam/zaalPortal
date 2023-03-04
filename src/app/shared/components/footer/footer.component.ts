@@ -1,11 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
 import {Link} from "./link.model";
 import {Router} from "@angular/router";
-import {HomeComponent} from "../../../modules/components/home/home.component";
-import {ZaalsessiesComponent} from "../../../modules/components/zaalsessies/zaalsessies.component";
-import {ZaalSessieComponent} from "../../../modules/components/zaal-sessie/zaal-sessie.component";
-import {SpelersComponent} from "../../../modules/components/spelers/spelers.component";
 
 @Component({
   selector: 'app-footer',

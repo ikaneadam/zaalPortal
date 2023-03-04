@@ -1,8 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import { ChartComponent } from "ng-apexcharts";
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-
-
 import {
   ApexNonAxisChartSeries,
   ApexResponsive,
@@ -12,7 +10,7 @@ import {HeaderService} from "../../../shared/services/header.service";
 import {SpelerService} from "../../../shared/services/speler.service";
 import {Speler} from "../../../shared/models/Speler.model";
 import {ActivatedRoute} from "@angular/router";
-import {BehaviorSubject} from "rxjs";
+import {getImgUrl} from "../../../shared/helpers/getImgUrl";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -27,14 +25,14 @@ export type ChartOptions = {
 @Component({
   selector: 'app-speler',
   templateUrl: './speler.component.html',
-  styleUrls: ['./speler.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./speler.component.css']
 })
 export class SpelerComponent implements OnInit {
   @ViewChild("chart", { static: true }) chart: ChartComponent | any;
   public chartOptions: Partial<ChartOptions> | any
+  public displayedColumns: string[] = ['value'];
   public faSpinner = faSpinner
-  public speler: Speler | undefined;
+  public speler: Speler | any;
 
   constructor(private headerService: HeaderService, private spelerService: SpelerService,private route: ActivatedRoute) {
     headerService.setHeaderText("spelers")
@@ -52,11 +50,29 @@ export class SpelerComponent implements OnInit {
 
   getPlayer(spelerUUID: string){
     this.spelerService.getSpeler(spelerUUID).subscribe((speler: Speler)=>{
-      console.log(speler)
       this.speler = speler
       this.headerService.setHeaderText(speler.name)
-      this.createDougnutChart(6, 6, 8)
+
+      if (this.calculateSum(speler.wins, speler.draws, speler.loses) === 0) {
+        return
+      }
+
+      this.createDougnutChart(Number(speler.wins), Number(speler.draws), Number(speler.loses))
     })
+  }
+
+  calculateSum(wins: string, draws:string, loses: string){
+    const array1 = [Number(wins), Number(draws), Number(loses)];
+
+    const initialValue = 0;
+    const sumWithInitial = array1.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      initialValue
+    );
+    return sumWithInitial
+  }
+  test(t:any){
+    console.log(t)
   }
 
   createEmptyDougnutChart(){
@@ -119,4 +135,9 @@ export class SpelerComponent implements OnInit {
       ]
     };
   }
+
+  public getImage(imageUrl: any){
+    return getImgUrl(imageUrl)
+  }
+
 }

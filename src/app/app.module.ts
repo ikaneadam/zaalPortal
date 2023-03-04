@@ -20,6 +20,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {NgApexchartsModule} from "ng-apexcharts";
 import {MatTableModule} from "@angular/material/table";
+import { HammerModule } from '@angular/platform-browser';
+import { CreateZaalSessieComponent } from './modules/components/zaalsessies/create-zaal-sessie/create-zaal-sessie.component';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from "@angular/material/card";
+import { AddTeamsComponent } from './modules/components/zaal-sessie/add-teams/add-teams.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -31,22 +41,32 @@ import {MatTableModule} from "@angular/material/table";
     ZaalSessieComponent,
     SpelerComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CreateZaalSessieComponent,
+    AddTeamsComponent
   ],
     imports: [
-        AppRoutingModule,
-        FontAwesomeModule,
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        NoopAnimationsModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatTabsModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgApexchartsModule,
-        MatTableModule,
+      AppRoutingModule,
+      FontAwesomeModule,
+      BrowserModule,
+      HttpClientModule,
+      BrowserAnimationsModule,
+      NoopAnimationsModule,
+      MatDatepickerModule,
+      MatNativeDateModule,
+      MatTabsModule,
+      FormsModule,
+      ReactiveFormsModule,
+      NgApexchartsModule,
+      MatTableModule,
+      HammerModule,
+      MatDialogModule,
+      MatFormFieldModule,
+      MatInputModule,
+      MatButtonModule,
+      MatCardModule,
+      MatIconModule,
+      MatListModule
     ],
   providers: [],
   bootstrap: [AppComponent]

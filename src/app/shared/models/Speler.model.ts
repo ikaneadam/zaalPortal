@@ -3,6 +3,7 @@ import {Goal} from "./Goal.model";
 
 export type Speler = {
   UUID: string;
+  uuid: string;
   name: string;
   imageUrl?: string;
   //typeorm getrawquery limitaions

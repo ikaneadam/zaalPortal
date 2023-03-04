@@ -1,4 +1,33 @@
-<section *ngIf="chartOptions !== undefined || speler !== undefined; else loading">
+<section class="component" *ngIf="chartOptions !== undefined || speler !== undefined; else loading">
+  <div class="profilePictureWrapper">
+    <img class="profilePicture" src="{{getImage(speler?.imageurl)}}">
+  </div>
+
+  <div class="statsWrapper">
+    <div class="stats">
+      <div class="horizontalStats">
+        <div class="stat">
+          <p>Goals: {{speler?.goals}}</p>
+        </div>
+        <div class="stat">
+          <p>Wins: {{speler?.wins}}</p>
+        </div>
+      </div>
+
+      <div class="horizontalStats">
+        <div class="stat">
+          <p>Draws: {{speler?.draws}}</p>
+        </div>
+        <div class="stat">
+          <p>Loses: {{speler?.loses}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
   <div id="chart">
     <apx-chart  id="test"
       [series]="chartOptions.series"
@@ -13,7 +42,7 @@
 
 
 <ng-template #loading>
-
-  <fa-icon class="spinner" [icon]="faSpinner"></fa-icon>
+  <div class="loaderBox">
+    <span class="loader"></span>
+  </div>
 </ng-template>
-

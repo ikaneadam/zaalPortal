@@ -28,7 +28,6 @@ export class SpelersComponent {
     this.spelerService.getSpelers().subscribe((spelers: Speler[])=>{
       this.spelers = spelers
     })
-
   }
 
   public getImage(imageUrl: string){

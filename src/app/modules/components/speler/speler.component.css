@@ -3,3 +3,69 @@
   margin: 35px auto;
   padding: 0;
 }
+
+
+.profilePictureWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profilePictureWrapper .profilePicture {
+  width: 30vw;
+  max-width: 200px;
+}
+
+.statsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statsWrapper .stats {
+  text-align: center;
+}
+
+
+.loader {
+  width: 144px;
+  height: 144px;
+  border: 10px dotted #403837;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 3s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profilePicture {
+  max-width: 50px;
+  border-radius: 30%;
+}
+
+.mat-row:hover .mat-cell{
+  background-color: #fff5a2;
+}
+
+.horizontalStats {
+  display:flex;
+  flex-direction: row;
+  padding:10px;
+}
+
+.stat {
+  padding:10px;
+}
+
+.component {
+  height: 120vh;
+}
