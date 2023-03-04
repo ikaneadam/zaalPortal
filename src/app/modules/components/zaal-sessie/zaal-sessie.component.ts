@@ -58,8 +58,8 @@ export class ZaalSessieComponent {
   }
 
   calculatePunten(team: any){
-    const winsPunten = team.wins * 3
-    const drawsPunten = team.wins * 1
+    const winsPunten = Number(team.wins) * 3
+    const drawsPunten = Number(team.draws) * 1
     return winsPunten + drawsPunten
   }
 
