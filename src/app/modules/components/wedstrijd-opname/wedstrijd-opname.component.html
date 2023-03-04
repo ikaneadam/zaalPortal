@@ -1,1 +1,10 @@
-<p>wedstrijd-opname works!</p>
+<section *ngIf="zaalsessie !== undefined; else loading">
+
+
+</section>
+
+<ng-template #loading>
+  <div class="loaderBox">
+    <span class="loader"></span>
+  </div>
+</ng-template>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Zaalsessie} from "../../../shared/models/Zaalsessie.model";
 import {HeaderService} from "../../../shared/services/header.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ZaalsessieService} from "../../../shared/services/zaalsessie.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddTeamsComponent} from "./add-teams/add-teams.component";
@@ -18,7 +18,7 @@ export class ZaalSessieComponent {
   public teams: Team[] = []
   public displayedColumns = ['Team', 'wins', 'loses', 'draws', 'punten']
 
-  constructor(private headerService: HeaderService, private zaalsessieService: ZaalsessieService,private route: ActivatedRoute,public dialog: MatDialog) {
+  constructor(private headerService: HeaderService, private zaalsessieService: ZaalsessieService,private route: ActivatedRoute,public dialog: MatDialog, public router: Router) {
     headerService.setHeaderText("")
   }
 
@@ -54,7 +54,7 @@ export class ZaalSessieComponent {
   }
 
   public timeGame(){
-
+    this.router.navigate([`wedstrijdOpname/${this.currentZaalsessieUUID}`])
   }
 
   calculatePunten(team: any){

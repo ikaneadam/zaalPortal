@@ -24,7 +24,6 @@ export class ZaalsessiesComponent {
 
   private getZaalsessies(){
     this.zaalsessieService.getZaalSessies().subscribe((zaalsessies: Zaalsessie[])=>{
-      console.log(zaalsessies)
       this.zaalSessies = zaalsessies
     })
   }
