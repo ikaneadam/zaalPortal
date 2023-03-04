@@ -12,6 +12,7 @@ import {HeaderService} from "../../../shared/services/header.service";
 import {SpelerService} from "../../../shared/services/speler.service";
 import {Speler} from "../../../shared/models/Speler.model";
 import {ActivatedRoute} from "@angular/router";
+import {BehaviorSubject} from "rxjs";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -31,7 +32,7 @@ export type ChartOptions = {
 })
 export class SpelerComponent implements OnInit {
   @ViewChild("chart", { static: true }) chart: ChartComponent | any;
-  public chartOptions: Partial<ChartOptions> | any;
+  public chartOptions: Partial<ChartOptions> | any
   public faSpinner = faSpinner
   public speler: Speler | undefined;
 
@@ -41,12 +42,10 @@ export class SpelerComponent implements OnInit {
 
   ngOnInit(){
     this.createEmptyDougnutChart()
-    // this.createDougnutChart()
+
     this.route.params.subscribe((params: any)=>{
       const spelerUUID = params['id'];
-      console.log(spelerUUID)
       this.getPlayer(spelerUUID)
-
     });
 
   }
@@ -56,7 +55,7 @@ export class SpelerComponent implements OnInit {
       console.log(speler)
       this.speler = speler
       this.headerService.setHeaderText(speler.name)
-      this.createDougnutChart(Number(speler.wins), Number(speler.draws), Number(speler.loses))
+      this.createDougnutChart(6, 6, 8)
     })
   }
 
@@ -83,6 +82,7 @@ export class SpelerComponent implements OnInit {
         }
       ]
     };
+
   }
 
   createDougnutChart(wins: number, draws: number, loses: number){
