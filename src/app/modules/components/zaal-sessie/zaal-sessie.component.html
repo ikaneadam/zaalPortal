@@ -42,6 +42,7 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row class="test"
+          (click)="viewTeam(row)"
           *matRowDef="let row; columns: displayedColumns;" ></tr>
     </table>
   </section>

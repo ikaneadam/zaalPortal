@@ -1,5 +1,43 @@
 <section *ngIf="zaalsessie !== undefined; else loading">
+  <div class="teams">
+    <div class="thuisTeam">
+      <h4>Thuis team</h4>
+      <mat-form-field appearance="fill" class="selectBoxIsVeelTeGrootMan">
+        <mat-label>{{thuisTeam?.name}}</mat-label>
+        <mat-select placeholder="{{thuisTeam?.name}}" [(value)]="thuisTeam">
+          <mat-option *ngFor="let team of getSelectableTeams()" [value]="team">
+            {{team.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
+    <div class="uitTeam">
+      <h4>Uit team</h4>
+      <mat-form-field appearance="fill" class="selectBoxIsVeelTeGrootMan">
+        <mat-label>{{uitTeam?.name}}</mat-label>
+        <mat-select placeholder="{{uitTeam?.name}}" [(value)]="uitTeam">
+          <mat-option *ngFor="let team of getSelectableTeams()" [value]="team">
+            {{team.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="menu">
+    <div class="wedstrijdStarten">
+      <button mat-fab color="primary" (click)="startWedstrijd()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <div class="wedstrijdStarten">
+      <button mat-fab color="primary" (click)="startWedstrijd()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
 
 </section>
 

@@ -6,6 +6,7 @@ import {ZaalsessieService} from "../../../shared/services/zaalsessie.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddTeamsComponent} from "./add-teams/add-teams.component";
 import {Team} from "../../../shared/models/Team.model";
+import {DisplayteamComponent} from "./displayteam/displayteam.component";
 
 @Component({
   selector: 'app-zaal-sessie',
@@ -52,6 +53,18 @@ export class ZaalSessieComponent {
       this.setTeams()
     });
   }
+
+  public viewTeam(team: Team){
+    const dialogRef = this.dialog.open(DisplayteamComponent, {
+      maxWidth: '90vw',
+      height: '60%',
+      width: '90vw',
+      data:{
+        team: team}
+    });
+  }
+
+
 
   public timeGame(){
     this.router.navigate([`wedstrijdOpname/${this.currentZaalsessieUUID}`])

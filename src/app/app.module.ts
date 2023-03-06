@@ -30,7 +30,9 @@ import {MatCardModule} from "@angular/material/card";
 import { AddTeamsComponent } from './modules/components/zaal-sessie/add-teams/add-teams.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
-
+import { DisplayteamComponent } from './modules/components/zaal-sessie/displayteam/displayteam.component';
+import {MatSelectModule} from "@angular/material/select";
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import {MatListModule} from "@angular/material/list";
     HeaderComponent,
     FooterComponent,
     CreateZaalSessieComponent,
-    AddTeamsComponent
+    AddTeamsComponent,
+    DisplayteamComponent
   ],
     imports: [
       AppRoutingModule,
@@ -66,7 +69,9 @@ import {MatListModule} from "@angular/material/list";
       MatButtonModule,
       MatCardModule,
       MatIconModule,
-      MatListModule
+      MatListModule,
+      MatSelectModule,
+      NgxMatSelectSearchModule
     ],
   providers: [],
   bootstrap: [AppComponent]
