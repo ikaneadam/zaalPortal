@@ -1,5 +1,5 @@
 <div class="component">
-  <section *ngIf="zaalsessie !== undefined || teams !== undefined; else loading">
+  <section *ngIf="zaalsessie !== undefined; else loading">
     <div class="wedstrijdAanmaken">
       <button mat-fab color="primary" (click)="createTeam()">
         <mat-icon>add</mat-icon>
@@ -45,6 +45,18 @@
           (click)="viewTeam(row)"
           *matRowDef="let row; columns: displayedColumns;" ></tr>
     </table>
+
+    <div class="wedstrijdenWrapper">
+      <h1>Wedstrijden</h1>
+      <div class="wedstrijden">
+        <mat-list role="list">
+          <mat-list-item *ngFor="let wedstrijd of zaalsessie.wedstrijden" role="listitem">
+            {{getStandVanWedstrijd(wedstrijd)}}
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+
   </section>
 </div>
 

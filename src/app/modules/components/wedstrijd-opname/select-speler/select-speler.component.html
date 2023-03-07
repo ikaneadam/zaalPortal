@@ -1,0 +1,8 @@
+<section>
+  <mat-list role="list">
+    <mat-list-item (click)="selectSpeler(speler)" *ngFor="let speler of getSpelers()" role="listitem">{{speler?.name}}</mat-list-item>
+  </mat-list>
+  <div mat-dialog-actions>
+    <button mat-button cdkFocusInitial (click)="onNoClick()">Laat maar geen goal</button>
+  </div>
+</section>

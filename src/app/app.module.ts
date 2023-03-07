@@ -33,6 +33,8 @@ import {MatListModule} from "@angular/material/list";
 import { DisplayteamComponent } from './modules/components/zaal-sessie/displayteam/displayteam.component';
 import {MatSelectModule} from "@angular/material/select";
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { SelectSpelerComponent } from './modules/components/wedstrijd-opname/select-speler/select-speler.component';
+import { CreateWedstrijdComponent } from './modules/components/zaal-sessie/create-wedstrijd/create-wedstrijd.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,9 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     FooterComponent,
     CreateZaalSessieComponent,
     AddTeamsComponent,
-    DisplayteamComponent
+    DisplayteamComponent,
+    SelectSpelerComponent,
+    CreateWedstrijdComponent
   ],
     imports: [
       AppRoutingModule,

@@ -7,6 +7,8 @@ import {MatDialog} from "@angular/material/dialog";
 import {AddTeamsComponent} from "./add-teams/add-teams.component";
 import {Team} from "../../../shared/models/Team.model";
 import {DisplayteamComponent} from "./displayteam/displayteam.component";
+import {CreateWedstrijdComponent} from "./create-wedstrijd/create-wedstrijd.component";
+import {Wedstrijd} from "../../../shared/models/Wedstrijd.model";
 
 @Component({
   selector: 'app-zaal-sessie',
@@ -67,7 +69,12 @@ export class ZaalSessieComponent {
 
 
   public timeGame(){
-    this.router.navigate([`wedstrijdOpname/${this.currentZaalsessieUUID}`])
+    const dialogRef = this.dialog.open(CreateWedstrijdComponent, {
+      height: '60%',
+      width: '98vw',
+      data:{
+        zaalsessie: this.zaalsessie}
+    });
   }
 
   calculatePunten(team: any){
@@ -77,7 +84,7 @@ export class ZaalSessieComponent {
   }
 
   private comparePunten(a: any, b: any) {
-    return a.punten - b.punten;
+    return b.punten - a.punten;
   }
 
   public setTeams() {
@@ -86,5 +93,13 @@ export class ZaalSessieComponent {
     teams = teams.map((team: any) => Object.assign(team, {punten: this.calculatePunten(team)}));
     teams = teams.sort(this.comparePunten)
     this.teams = teams
+  }
+
+  public getStandVanWedstrijd(wedstrijd: Wedstrijd){
+    const thuisClubNaam = wedstrijd.thuisClub.name
+    const thuisGoals = wedstrijd.thuisGoals?.length
+    const uitGoals = wedstrijd.uitGoals?.length
+    const uitClubNaam = wedstrijd.uitClub.name
+    return `${thuisClubNaam} ${thuisGoals} - ${uitGoals} ${uitClubNaam}`
   }
 }

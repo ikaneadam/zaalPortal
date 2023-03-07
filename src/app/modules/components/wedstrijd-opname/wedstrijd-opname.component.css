@@ -1,29 +1,17 @@
-.teams {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-
-
-.selectBoxIsVeelTeGrootMan {
-  width: 110px;
-}
-
 .menu {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
-
-
-
-
-
-
-
 .component {
   height: 100vh;
+}
+
+.stand {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .loaderBox {

@@ -57,5 +57,17 @@
   padding: 10px;
 }
 
+.wedstrijden {
+  display: flex;
+  justify-content: center;
+}
+
+.wedstrijdenWrapper {
+  text-align: center;
+}
+
+.wedstrijdenWrapper > h1 {
+  font-size: 24px;
+}
 
 

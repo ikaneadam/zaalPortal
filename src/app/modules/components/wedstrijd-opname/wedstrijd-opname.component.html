@@ -1,43 +1,40 @@
-<section *ngIf="zaalsessie !== undefined; else loading">
-  <div class="teams">
-    <div class="thuisTeam">
-      <h4>Thuis team</h4>
-      <mat-form-field appearance="fill" class="selectBoxIsVeelTeGrootMan">
-        <mat-label>{{thuisTeam?.name}}</mat-label>
-        <mat-select placeholder="{{thuisTeam?.name}}" [(value)]="thuisTeam">
-          <mat-option *ngFor="let team of getSelectableTeams()" [value]="team">
-            {{team.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+<section *ngIf="wedstrijd !== undefined; else loading">
 
-    <div class="uitTeam">
-      <h4>Uit team</h4>
-      <mat-form-field appearance="fill" class="selectBoxIsVeelTeGrootMan">
-        <mat-label>{{uitTeam?.name}}</mat-label>
-        <mat-select placeholder="{{uitTeam?.name}}" [(value)]="uitTeam">
-          <mat-option *ngFor="let team of getSelectableTeams()" [value]="team">
-            {{team.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+  <div class="menu">
+    <div class="team">
+      <h1>{{wedstrijd?.thuisClub?.name}}</h1>
+    </div>
+    <div class="team">
+      <h1>{{wedstrijd?.uitClub?.name}}</h1>
     </div>
   </div>
+
+  <div class="stand">
+    <h1>{{getStand()}}</h1>
+  </div>
+
 
   <div class="menu">
     <div class="wedstrijdStarten">
-      <button mat-fab color="primary" (click)="startWedstrijd()">
+      <button mat-fab color="primary" (click)="thuisGoal()">
         <mat-icon>add</mat-icon>
       </button>
     </div>
 
     <div class="wedstrijdStarten">
-      <button mat-fab color="primary" (click)="startWedstrijd()">
+      <button mat-fab color="primary" (click)="uitGoal()">
         <mat-icon>add</mat-icon>
       </button>
     </div>
   </div>
+
+  <div class="stand">
+    <div mat-dialog-actions>
+      <button mat-button (click)="closeWedstrijd()">Beeindig de weddie</button>
+    </div>
+  </div>
+
+
 
 </section>
 

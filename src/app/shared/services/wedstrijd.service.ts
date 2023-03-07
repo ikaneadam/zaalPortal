@@ -17,18 +17,18 @@ export class WedstrijdService extends HttpService {
   }
 
   public getWedstrijden(zaalSessieUUID: string): Observable<Wedstrijd[]>{
-    return this.http.get<Wedstrijd[]>(`${this.host}/api/zaalsessies/${zaalSessieUUID}/wedstrijden`)
+    return this.http.get<Wedstrijd[]>(`${this.host}/api/wedstrijden`)
   }
 
-  public getWedstrijd(zaalSessieUUID: string, wedstrijdUUID: string): Observable<Wedstrijd>{
-    return this.http.get<Wedstrijd>(`${this.host}/api/zaalsessies/${zaalSessieUUID}`)
+  public getWedstrijd(wedstrijdUUID: string): Observable<Wedstrijd>{
+    return this.http.get<Wedstrijd>(`${this.host}/api/wedstrijden/${wedstrijdUUID}`)
   }
 
   public createWedstrijd(zaalSessieUUID: string, wedstrijdPayload: {thuisClubUUID: string, uitClubUUID: string}): Observable<Wedstrijd> {
     return this.http.post<Wedstrijd>(`${this.host}/api/zaalsessies/${zaalSessieUUID}/wedstrijden`, wedstrijdPayload)
   }
 
-  public addGoalToWedstrijd(wedstrijdUUID: string, wedstrijdPayload: {goal: Goal, goalType: 'thuis' | 'uit'}): Observable<Wedstrijd> {
+  public addGoalToWedstrijd(wedstrijdUUID: string, wedstrijdPayload: {goal: any, goalType: string}): Observable<Wedstrijd> {
     return this.http.post<Wedstrijd>(`${this.host}/api/wedstrijden/${wedstrijdUUID}/goal`, wedstrijdPayload)
   }
 
