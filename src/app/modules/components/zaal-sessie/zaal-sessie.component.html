@@ -50,8 +50,24 @@
       <h1>Wedstrijden</h1>
       <div class="wedstrijden">
         <mat-list role="list">
-          <mat-list-item *ngFor="let wedstrijd of zaalsessie.wedstrijden" role="listitem">
-            {{getStandVanWedstrijd(wedstrijd)}}
+          <mat-list-item *ngFor="let wedstrijd of zaalsessie.wedstrijden" role="listitem" >
+            <div class="wedstrijd">
+              <div class="team">
+                <h1>{{wedstrijd?.thuisClub?.name}}</h1>
+                <div class="thuisGoal" *ngFor="let goal of wedstrijd.thuisGoals">
+                  <img src="./assets/pictures/football.png" class="footbalIcon">
+                  <p>{{goal?.scoorder?.name}}</p>
+                </div>
+              </div>
+              <p>{{getStandVanWedstrijd(wedstrijd)}}</p>
+              <div class="team">
+                <h1>{{wedstrijd?.uitClub?.name}}</h1>
+                <div class="uitGoal" *ngFor="let goal of wedstrijd.uitGoals">
+                  <p>{{goal?.scoorder?.name}}</p>
+                  <img src="./assets/pictures/football.png" class="footbalIcon">
+                </div>
+              </div>
+            </div>
           </mat-list-item>
         </mat-list>
       </div>

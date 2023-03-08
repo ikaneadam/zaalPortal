@@ -96,10 +96,8 @@ export class ZaalSessieComponent {
   }
 
   public getStandVanWedstrijd(wedstrijd: Wedstrijd){
-    const thuisClubNaam = wedstrijd.thuisClub.name
     const thuisGoals = wedstrijd.thuisGoals?.length
     const uitGoals = wedstrijd.uitGoals?.length
-    const uitClubNaam = wedstrijd.uitClub.name
-    return `${thuisClubNaam} ${thuisGoals} - ${uitGoals} ${uitClubNaam}`
+    return `${thuisGoals} - ${uitGoals}`
   }
 }
