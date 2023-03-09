@@ -17,7 +17,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatTabsModule} from "@angular/material/tabs";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {NgApexchartsModule} from "ng-apexcharts";
 import {MatTableModule} from "@angular/material/table";
 import { HammerModule } from '@angular/platform-browser';
@@ -54,7 +53,6 @@ import { CreateWedstrijdComponent } from './modules/components/zaal-sessie/creat
   ],
     imports: [
       AppRoutingModule,
-      FontAwesomeModule,
       BrowserModule,
       HttpClientModule,
       BrowserAnimationsModule,

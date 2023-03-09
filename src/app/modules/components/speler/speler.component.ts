@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import { ChartComponent } from "ng-apexcharts";
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import {
   ApexNonAxisChartSeries,
   ApexResponsive,
@@ -31,7 +30,6 @@ export class SpelerComponent implements OnInit {
   @ViewChild("chart", { static: true }) chart: ChartComponent | any;
   public chartOptions: Partial<ChartOptions> | any
   public displayedColumns: string[] = ['value'];
-  public faSpinner = faSpinner
   public speler: Speler | any;
 
   constructor(private headerService: HeaderService, private spelerService: SpelerService,private route: ActivatedRoute) {
