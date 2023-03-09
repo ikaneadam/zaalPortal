@@ -1,3 +1,3 @@
 export function getImgUrl(imgUrl: string){
-  return `http://localhost:5001/static/${imgUrl}`
+  return `https://zaalportal.onrender.com/static/${imgUrl}`
 }
